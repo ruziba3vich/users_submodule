@@ -5,8 +5,8 @@ option go_package = "./genprotos";
 import "google/protobuf/empty.proto";
 
 service UsersService {
-    rpc RegisterUser(CreateUserReuest) returns (RegisterUserResponse);
-    rpc LoginUser(LoginRequest) returns (User);
+    rpc RegisterUser(CreateUserReuest) returns (User);
+    rpc LoginUser(LoginRequest) returns (RegisterUserResponse);
     rpc GetById(GetByFieldRequest) returns (User);
     rpc GetByUsername(GetByFieldRequest) returns (User);
     rpc GetByEmail(GetByFieldRequest) returns (User);
