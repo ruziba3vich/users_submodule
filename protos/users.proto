@@ -56,6 +56,7 @@ message CreateUserReuest {
     }
 
     Profile profile = 4;
+    bool deleted = 5;
 }
 
 message UpdateUserReuqest {
