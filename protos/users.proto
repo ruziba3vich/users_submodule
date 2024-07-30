@@ -22,12 +22,6 @@ message User {
     string username = 2;
     string email = 3;
     string password = 4;
-
-    message Profile {
-        string name = 1;
-        string address = 2;
-    }
-
     Profile profile = 5;
     bool deleted = 6;
 }
@@ -50,15 +44,15 @@ message CreateUserReuest {
     string email = 2;
     string password = 3;
 
-    message Profile {
-        string name = 1;
-        string address = 2;
-    }
-
     Profile profile = 4;
     bool deleted = 5;
 }
 
 message UpdateUserReuqest {
     User user = 1;
+}
+
+message Profile {
+    string name = 1;
+    string address = 2;
 }
