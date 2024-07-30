@@ -5,14 +5,14 @@ option go_package = "./genprotos";
 import "google/protobuf/empty.proto";
 
 service UsersService {
-    rpc RegisterUser(CreateUserReuest) returns (User);
+    rpc RegisterUser(CreateUserReuest) returns (Response); ///
     rpc LoginUser(LoginRequest) returns (RegisterUserResponse);
     rpc GetById(GetByFieldRequest) returns (User);
     rpc GetByUsername(GetByFieldRequest) returns (User);
     rpc GetByEmail(GetByFieldRequest) returns (User);
-    rpc UpdateUser(UpdateUserReuqest) returns (User);
+    rpc UpdateUser(UpdateUserReuqest) returns (Response); ///
     rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
-    rpc DeleteUserById(GetByFieldRequest) returns (User);
+    rpc DeleteUserById(GetByFieldRequest) returns (Response); ///
     rpc GetUsersByAddress(GetUsersByAddressRequest) returns (GetAllUsersResponse);
 }
 
@@ -74,4 +74,8 @@ message GetUsersByAddressRequest{
 message GetAllUsersRequest {
     int32 pagination = 1;
     int32 limit = 2;
+}
+
+message Response {
+    string message = 1;
 }
