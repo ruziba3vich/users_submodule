@@ -13,6 +13,7 @@ service UsersService {
     rpc UpdateUser(UpdateUserReuqest) returns (User);
     rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
     rpc DeleteUserById(GetByFieldRequest) returns (User);
+    rpc GetUsersByAddress(GetUsersByAddressRequest) returns (GetAllUsersResponse);
 }
 
 /// ---------------------------------------------------- Messages --------------------------------------------
@@ -55,4 +56,8 @@ message UpdateUserReuqest {
 message Profile {
     string name = 1;
     string address = 2;
+}
+
+message GetUsersByAddressRequest{
+    string address = 1;
 }
