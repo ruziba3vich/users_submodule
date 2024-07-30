@@ -61,3 +61,8 @@ message Profile {
 message GetUsersByAddressRequest{
     string address = 1;
 }
+
+message GetAllUsersRequest {
+    int32 pagination = 1;
+    int32 limit = 2;
+}
