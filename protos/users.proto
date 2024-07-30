@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+option go_package = "./genprotos";
+
+import "google/protobuf/empty.proto";
+
+service UsersService {
+    rpc RegisterUser(CreateUserReuest) returns (User);
+    rpc LoginUser(LoginRequest) returns (User);
+    rpc GetById(GetByFieldRequest) returns (User);
+    rpc GetByUsername(GetByFieldRequest) returns (User);
+    rpc GetByEmail(GetByFieldRequest) returns (User);
+    rpc UpdateUser(UpdateUserReuqest) returns (User);
+    rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
+    rpc DeleteUserById(GetByFieldRequest) returns (User);
+}
+
+/// ---------------------------------------------------- Messages --------------------------------------------
+
+message User {
+    string user_id = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+
+    message Profile {
+        string name = 1;
+        string address = 2;
+    }
+
+    Profile profile = 5;
+    bool deleted = 6;
+}
+
+message GetAllUsersResponse {
+    repeated User users = 1;
+}
+
+message GetByFieldRequest {
+    string get_by_field = 1;
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message CreateUserReuest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+
+    message Profile {
+        string name = 1;
+        string address = 2;
+    }
+
+    Profile profile = 4;
+}
+
+message UpdateUserReuqest {
+    User user = 1;
+}
