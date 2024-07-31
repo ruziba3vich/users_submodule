@@ -11,7 +11,7 @@ service UsersService {
     rpc GetByUsername(GetByFieldRequest) returns (User);
     rpc GetByEmail(GetByFieldRequest) returns (User);
     rpc UpdateUser(UpdateUserReuqest) returns (Response); ///
-    rpc GetAllUsers(google.protobuf.Empty) returns (GetAllUsersResponse);
+    rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
     rpc DeleteUserById(GetByFieldRequest) returns (Response); ///
     rpc GetUsersByAddress(GetUsersByAddressRequest) returns (GetAllUsersResponse);
 }
