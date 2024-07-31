@@ -2,8 +2,6 @@ syntax = "proto3";
 
 option go_package = "./genprotos";
 
-import "google/protobuf/empty.proto";
-
 service UsersService {
     rpc RegisterUser(CreateUserReuest) returns (Response); ///
     rpc LoginUser(LoginRequest) returns (RegisterUserResponse);
